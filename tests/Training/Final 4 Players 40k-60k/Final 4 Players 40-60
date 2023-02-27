@@ -1,0 +1,20 @@
+Setup Name:
+Final 4 Players 40-60
+Training Config Name:
+Less Games More Train 20k
+Game Config Name:
+Full Game
+Bid Config Name:
+Final 4 Players 40-60
+Play Config Name:
+Final 4 Players 40-60
+Agent Mode:
+MultiAgent
+Player Mode:
+BidPlay
+Existing Pre Trained Model:
+True
+Existing Bid Model Path:
+Tests/Auswahl/A Final Run BU/checkpointers/Final 4 Checkpointer 40k/bid/checkpoint
+Existing Play Model Path:
+Tests/Auswahl/A Final Run BU/checkpointers/Final 4 Checkpointer 40k/play/checkpoint

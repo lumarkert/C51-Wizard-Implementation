@@ -1,0 +1,19 @@
+Setup Name:
+Final 4 Player
+Training Config Name:
+Less Games More Train
+Game Config Name:
+Full Game 4 Players
+Bid Config Name:
+Final 4 Players
+Play Config Name:
+Final 4 Players
+Agent Mode:
+MultiAgent
+Player Mode:
+BidPlay
+Existing Pre Trained Model:
+False
+Existing Bid Model Path:
+
+Existing Play Model Path:

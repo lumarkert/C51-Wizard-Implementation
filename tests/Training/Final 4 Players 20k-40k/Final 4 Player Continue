@@ -1,0 +1,20 @@
+Setup Name:
+Final 4 Player Continue
+Training Config Name:
+Less Games More Train 20k
+Game Config Name:
+Full Game
+Bid Config Name:
+Batchsize 1024
+Play Config Name:
+Batchsize 1024
+Agent Mode:
+MultiAgent
+Player Mode:
+BidPlay
+Existing Pre Trained Model:
+True
+Existing Bid Model Path:
+Tests/14_02/09_14 Final 4 Player/wrappers/MultiAgent_BidPlay_1_Bidding/checkpoint
+Existing Play Model Path:
+Tests/14_02/09_14 Final 4 Player/wrappers/MultiAgent_BidPlay_1_Playing/checkpoint
