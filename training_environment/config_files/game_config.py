@@ -47,7 +47,7 @@ class GameConfig:
 
     def load_config_from_file(self, file_name):
         current_dir = os.getcwd()
-        new_dir = os.path.join(current_dir, "pre_configs/game")
+        new_dir = os.path.join(current_dir, "training_environment/pre_configs/game")
         path = os.path.join(new_dir, file_name)
         with open(path, 'r') as f:
             lines = f.read().splitlines()

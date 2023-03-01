@@ -12,7 +12,7 @@ from tf_agents.utils import common
 import tensorflow as tf
 
 from training_environment.config_files.c51_config import C51Config
-from training_environment.spiel_umgebung.round import Round
+from training_environment.game_environment.round import Round
 
 
 class BiddingWrapper(ABC):

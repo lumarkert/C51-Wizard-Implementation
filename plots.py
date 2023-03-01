@@ -3,7 +3,6 @@ import os
 import numpy as np
 
 from matplotlib import pyplot as plt
-from matplotlib.markers import TICKLEFT, TICKRIGHT
 
 
 def plot_train_loss(path):
@@ -41,14 +40,15 @@ def plot_train_loss(path):
                 if idx == 21 and step == csv_steps[-1]:
                     train_loss_play.append(float(row[1]))
 
-    plt.plot(steps, train_loss_play, color="r", label="Ausspiel-Agent")
     plt.plot(steps, train_loss_bid, color="b", label="Ansagen-Agent")
+    plt.plot(steps, train_loss_play, color="r", label="Ausspiel-Agent")
+
     plt.grid()
     plt.xlabel('Trainingsiteration')
-    plt.ylim(top=4.0, bottom=1.0)
+    plt.ylim(bottom=1.0)
     plt.xticks(range(0, 100000, 20000))
     plt.legend()
-    plt.ylabel('Verlust')
+    plt.ylabel('Berechneter Verlust des Optimizers')
     file_name = f'train_loss.png'
     plt.savefig(os.path.join(csv_dir, file_name))
     plt.clf()
@@ -134,7 +134,7 @@ def plot_accuracy_over_training(path):
     plt.xticks(range(0, 100000, 20000))
     plt.ylim(top=40, bottom=30)
 
-    plt.ylabel('Durchschnittlicher Genauigkeit über 100 Spiele')
+    plt.ylabel('Durchschnittlicher Ansage-Genauigkeit über 100 Spiele in %')
     file_name = f'accuracy_over_training_part_view.png'
     plt.savefig(os.path.join(csv_dir, file_name))
     plt.clf()
@@ -144,7 +144,7 @@ def plot_accuracy_over_training(path):
     plt.xlabel('Trainingsiteration')
     plt.xticks(range(0, 100000, 20000))
     plt.ylim(top=40, bottom=15)
-    plt.ylabel('Durchschnittlicher Genauigkeit über 100 Spiele')
+    plt.ylabel('Durchschnittlicher Ansage-Genauigkeit über 100 Spiele in %')
     file_name = f'accuracy_over_training_full_view.png'
     plt.savefig(os.path.join(csv_dir, file_name))
     plt.clf()
@@ -224,7 +224,7 @@ def plot_avg_accuracy_per_round(path):
         plt.plot(game_steps, avg_accuracy_per_round, color=colors[step_idx], marker='*', label=f"Step {step}")
 
     plt.xticks(game_steps)
-    plt.ylabel('Durchschnittliche Genauigkeit über 1000 Spiele')
+    plt.ylabel('Durchschnittliche Ansage-Genauigkeit über 1000 Spiele in %')
     plt.xlabel('Nummer der Runde')
     plt.ylim(top=80, bottom=18)
     plt.grid()
@@ -247,7 +247,7 @@ def plot_avg_accuracy_per_round(path):
     game_steps = range(1, 16, 1)
     plt.plot(game_steps, avg_accuracy_per_round, color="k", marker='*', label=f"Step {step}")
     plt.xticks(game_steps)
-    plt.ylabel('Durchschnittliche Genauigkeit über 1000 Spiele')
+    plt.ylabel('Durchschnittliche Ansage-Genauigkeit über 1000 Spiele in %')
     plt.xlabel('Nummer der Runde')
     plt.ylim(top=80, bottom=18)
     plt.grid()
@@ -381,7 +381,7 @@ def plot_avg_accuracy_bars_tournament_against(path):
     plt.bar(csv_steps_str, avg_accuracy, width=0.5)
     plt.grid()
     plt.ylim(top=38, bottom=32)
-    plt.ylabel('Durchschnittliche Genauigkeit\nüber 5000 Spiele gegen einander')
+    plt.ylabel('Durchschnittliche Ansage-Genauigkeit\nüber 5000 Spiele gegen einander in %')
     plt.xlabel('Trainingsiteration')
     plt.savefig(os.path.join(csv_dir, "avg_accuracy_tournament_against.png"))
     plt.clf()
@@ -411,7 +411,7 @@ def plot_avg_accuracy_bars_tournament_same(path):
     plt.bar(csv_steps_str, avg_accuracy, width=0.5)
     plt.grid()
     plt.ylim(top=38, bottom=32)
-    plt.ylabel('Durchschnittliche Genauigkeit\nüber 1000 Spiele gegen sich selbst')
+    plt.ylabel('Durchschnittliche Ansage-Genauigkeit\nüber 1000 Spiele gegen sich selbst in %')
     plt.xlabel('Trainingsiteration')
     plt.savefig(os.path.join(csv_dir, "avg_accuracy_tournament_same.png"))
     plt.clf()
@@ -535,16 +535,16 @@ def plot_boxplot_guesses(path, step):
         avg_guessed_tricks.append(sum(guessed_tricks[idx]) / len(guessed_tricks[idx]))
 
     plt.boxplot(guessed_tricks)
-    plt.ylabel('Getippte Stiche über 1000 Spiele')
-    plt.xlabel('Nummer der Runde')
+    plt.ylabel('Getippte Stiche über 1000 Spiele', fontsize=13)
+    plt.xlabel('Nummer der Runde', fontsize=13)
     plt.ylim(top=15, bottom=-1)
     file_name = f'guessed_tricks_clean_{step}.png'
     plt.savefig(os.path.join(csv_dir, file_name))
     plt.clf()
 
     plt.boxplot(won_tricks)
-    plt.ylabel('Gewonnen Stiche über 1000 Spiele')
-    plt.xlabel('Nummer der Runde')
+    plt.ylabel('Gewonnen Stiche über 1000 Spiele', fontsize=13)
+    plt.xlabel('Nummer der Runde', fontsize=13)
     plt.ylim(top=15, bottom=-1)
     file_name = f'won_tricks_clean_{step}.png'
     plt.savefig(os.path.join(csv_dir, file_name))
@@ -552,8 +552,8 @@ def plot_boxplot_guesses(path, step):
 
     plt.boxplot(won_tricks)
     plt.plot(game_steps, avg_won_tricks, "x", color="g", label=f"Durchschnittliche gewonnene Stiche")
-    plt.ylabel('Gewonnen Stiche über 1000 Spiele')
-    plt.xlabel('Nummer der Runde')
+    plt.ylabel('Gewonnen Stiche über 1000 Spiele', fontsize=13)
+    plt.xlabel('Nummer der Runde', fontsize=13)
     plt.ylim(top=15, bottom=-1)
     plt.legend()
     file_name = f'won_tricks_with_average_{step}.png'
@@ -561,8 +561,8 @@ def plot_boxplot_guesses(path, step):
     plt.clf()
 
     plt.boxplot(guessed_tricks)
-    plt.ylabel('Getippte Stiche über 1000 Spiele')
-    plt.xlabel('Nummer der Runde')
+    plt.ylabel('Getippte Stiche über 1000 Spiele', fontsize=13)
+    plt.xlabel('Nummer der Runde', fontsize=13)
     plt.ylim(top=15, bottom=-1)
     plt.plot(game_steps, avg_won_tricks, "x", color="g", label=f"Durchschnittliche gewonnene Stiche")
     plt.plot(game_steps, avg_guessed_tricks, "^", color="r", label=f"Durchschnittliche getippte Stiche",
@@ -573,8 +573,8 @@ def plot_boxplot_guesses(path, step):
     plt.clf()
 
     plt.boxplot(guessed_tricks)
-    plt.ylabel('Getippte Stiche über 1000 Spiele')
-    plt.xlabel('Nummer der Runde')
+    plt.ylabel('Getippte Stiche über 1000 Spiele', fontsize=13)
+    plt.xlabel('Nummer der Runde', fontsize=13)
     plt.ylim(top=15, bottom=-1)
     plt.plot(game_steps, avg_won_tricks, "x", color="g", label=f"Durchschnittliche gewonnene Stiche")
     file_name = f'guessed_tricks_with_won_averages_{step}.png'
@@ -583,8 +583,8 @@ def plot_boxplot_guesses(path, step):
     plt.clf()
 
     plt.boxplot(guessed_tricks)
-    plt.ylabel('Getippte Stiche über 1000 Spiele')
-    plt.xlabel('Nummer der Runde')
+    plt.ylabel('Getippte Stiche über 1000 Spiele', fontsize=13)
+    plt.xlabel('Nummer der Runde', fontsize=13)
     plt.ylim(top=15, bottom=-1)
     plt.plot(game_steps, avg_guessed_tricks, "^", color="r", label=f"Durchschnittliche getippte Stiche",
              markerfacecolor='none')
@@ -611,4 +611,4 @@ def plot_categorical(path):
     plt.clf()
 
 
-plot_final("tests/Auswahl/A Final Run", 80000)
+plot_final("tests/Checkpointers, Data & Plots", 80000)

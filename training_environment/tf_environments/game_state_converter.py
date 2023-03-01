@@ -2,8 +2,8 @@ import numpy as np
 
 from training_environment.config_files.game_config import GameConfig
 from training_environment.players.player import Player
-from training_environment.spiel_umgebung.trick import Trick
-from training_environment.spiel_umgebung.round import Round
+from training_environment.game_environment.trick import Trick
+from training_environment.game_environment.round import Round
 
 import tensorflow as tf
 

@@ -12,7 +12,7 @@ import numpy as np
 import tensorflow as tf
 
 from training_environment.config_files.c51_config import C51Config
-from training_environment.spiel_umgebung.trick import Trick
+from training_environment.game_environment.trick import Trick
 
 
 def observation_and_action_constraint_splitter(observation):

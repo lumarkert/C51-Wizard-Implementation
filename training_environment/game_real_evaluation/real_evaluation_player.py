@@ -3,8 +3,8 @@ from abc import ABC, abstractmethod
 
 import numpy as np
 
-from training_environment.spiel_umgebung.round import Round
-from training_environment.spiel_umgebung.trick import Trick
+from training_environment.game_environment.round import Round
+from training_environment.game_environment.trick import Trick
 
 
 class RealEvaluationPlayer(ABC):

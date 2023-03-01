@@ -9,7 +9,7 @@ import time as t
 import numpy as np
 
 from training_environment.manager import save_manager
-from training_environment.spiel_umgebung.game import Game
+from training_environment.game_environment.game import Game
 from training_environment.manager.player_manager import PlayerManager
 from training_environment.config_files.training_setup import TrainingSetup
 

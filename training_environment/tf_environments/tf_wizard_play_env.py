@@ -7,7 +7,7 @@ from tf_agents.environments import py_environment
 from tf_agents.specs import array_spec
 from tf_agents.trajectories import time_step as ts
 
-import game_state_converter as gsc
+import training_environment.tf_environments.game_state_converter as gsc
 from training_environment.config_files.c51_config import C51Config
 from training_environment.config_files.game_config import GameConfig
 

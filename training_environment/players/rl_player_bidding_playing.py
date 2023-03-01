@@ -6,7 +6,7 @@ from training_environment.players.player import Player
 from training_environment.agent_wrappers.c51_bidding_wrapper import C51BiddingWrapper
 from training_environment.agent_wrappers.c51_playing_wrapper import C51PlayingWrapper
 
-from training_environment.spiel_umgebung.trick import Trick
+from training_environment.game_environment.trick import Trick
 
 
 class RLPlayerBiddingPlaying(Player):

@@ -11,7 +11,7 @@ import time as t
 from training_environment.manager import save_manager
 from training_environment.config_files.game_config import GameConfig
 from training_environment.config_files.tournament_config import TournamentConfig
-from training_environment.spiel_umgebung.game import Game
+from training_environment.game_environment.game import Game
 from training_environment.manager.tournament_manager import TournamentManager
 
 

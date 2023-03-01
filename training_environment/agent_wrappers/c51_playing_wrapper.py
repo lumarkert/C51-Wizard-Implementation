@@ -218,7 +218,7 @@ class C51PlayingWrapper(PlayingWrapper):
         if self.previous_playing_time_step is not None:
             traj = trajectory.from_transition(self.previous_playing_time_step, self.current_playing_action_step,
                                               self.current_playing_time_step)
-        self.replay_buffer.add_batch(traj)
+            self.replay_buffer.add_batch(traj)
 
         self.current_playing_action_step = self.policy.action(self.current_playing_time_step)
         return self.current_playing_action_step.action.numpy()[0]

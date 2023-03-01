@@ -350,8 +350,3 @@ def combine_box_plot_points(path, target_path, step):
               newline='') as f:
         write = csv.writer(f)
         write.writerows(boxplot_points)
-
-
-combine_tournament_against_each_other("tests/Evaluierung/Against Each Other/tournament", "tests/Auswahl/A Final Run", "all")
-#combine_tournament_all_same("Tests/Auswahl/A Final Run/Tournament/All 40k/tournament", "Tests/Auswahl/A Final Run", 40000)
-#combine_training("Tests/Auswahl/A Final Run/Training/Final 4 Players 0-20", "Tests/Auswahl/A Final Run", 20000)
